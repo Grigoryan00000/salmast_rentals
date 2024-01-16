@@ -1,0 +1,23 @@
+.home-services{
+    background: var(--black);
+    padding: 85px 0;
+    margin-top: 70px;
+    &-title{
+        text-align: center;
+        h2{
+            font-size: 42px;
+            line-height: 62.4px;
+            color: var(--white);
+            letter-spacing: 0;
+        }
+        p{
+            font-size: 18px;
+            line-height: 28.8px;
+            color: var(--white);
+            letter-spacing: 0;
+            width: 770px;
+            margin: auto;
+            padding-top: 25px;
+        }
+    }
+}

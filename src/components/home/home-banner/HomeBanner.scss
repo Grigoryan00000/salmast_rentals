@@ -1,0 +1,67 @@
+.home-banner{
+    background: url(../../../assets//home/home-banner/headbackgraund.jpg) no-repeat center/cover fixed;
+    text-align: center;
+    .container{
+        height: 110vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 70px 0;
+    }
+    &-title{
+        h1{
+            width: 500px;
+            margin: 0 auto;
+            color: var(--white);
+            line-height: 50px;
+            font-size: 45px;
+        }
+        p{
+            width: 350px;
+            margin: auto;
+            color: #D9D9D9;
+            padding-top: 35px;
+        }
+    }
+    &-img{
+        width: 100%;
+        animation: sdd 3s ease;
+
+    }
+    &-date{
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        input{
+            color: var(--white);
+            width: 150px;
+            cursor: pointer;
+        }
+        button{
+            padding: 18px 40px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.47);
+            background: rgba(255, 255, 255, 0.16);
+            color: var(--white);
+            cursor: pointer;
+        }
+    }
+}
+.poligon{
+    width:150px;
+    height:40px;
+    margin: auto;
+    background-color:red;
+    transform: rotate(180deg);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    background-color: #080B19;
+}
+
+@keyframes sdd {
+    0%{
+        transform: scale(0.5);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
