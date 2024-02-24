@@ -3,6 +3,12 @@
   margin: 0;
   box-sizing: border-box;
   user-select: none;
+  position: none;
+  -webkit-user-drag: none;
+}
+
+img{
+  user-select: none;
 }
 .container{
   max-width: var(--global-max-width);
@@ -11,12 +17,17 @@
 body{
   font-family: Arial;
 }
+body::-webkit-scrollbar{
+  display: none;
+}
 :root{
   --global-max-width: 1300px;
   --layout: #151D33;
   --white: #ffff;
   --black: #000;
   --blue: #0F62FE;
+  --gray: #959BA4;
+  --green: #27C79A
 }
 p{
   font-size: 17px;

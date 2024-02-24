@@ -1,67 +1,128 @@
-.home-banner{
-    background: url(../../../assets//home/home-banner/headbackgraund.jpg) no-repeat center/cover fixed;
-    text-align: center;
-    .container{
-        height: 110vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 70px 0;
-    }
-    &-title{
-        h1{
-            width: 500px;
-            margin: 0 auto;
-            color: var(--white);
-            line-height: 50px;
-            font-size: 45px;
-        }
-        p{
-            width: 350px;
-            margin: auto;
-            color: #D9D9D9;
-            padding-top: 35px;
-        }
-    }
-    &-img{
-        width: 100%;
-        animation: sdd 3s ease;
 
-    }
-    &-date{
+// .home-banner-item{
+//   width: 100%;
+//   height: 80vh;
+//   display: flex;
+//   justify-content: space-between;
+//   transition: 3s;
+//   img{
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     // animation-name: a;
+//     // animation-duration: 3s;
+//   }
+  
+// }
+
+// @keyframes a {
+//   0%{
+//     left: 50%;
+//   }
+//   100%{
+//     left: -50%;
+//   }
+// }
+// @keyframes b {
+//   0%{
+//     right: 0;
+//   }
+//   100%{
+//     right: 50%;
+//   }
+// }
+
+
+// .home-banner{
+//   width: 100%;
+//   height: 100vh;
+//   &-content{
+//     width: 100%;
+//     height: 100%;
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     &-slide{
+//       display: flex;
+//       justify-content: center;
+//       align-items: center;
+//       flex-direction: column;
+//       width: 100%;
+//       height: 500px;
+//       overflow-x: scroll;
+//       scroll-snap-type: x mandatory;
+//       scroll-behavior: smooth;
+//       &-img{
+//         scroll-snap-align: start;
+//         min-width: 100%;
+//       }
+//     }
+//   }
+// }
+
+
+.home-banner{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 90vh;
+  transition: all 10s ease;
+  &-prev{
+  }
+  &-slider-inner {
+    overflow: hidden;
+    &-slides {
+      width: 300%;
+      display: flex;
+      &-item{
+        width: 100%;
         display: flex;
         justify-content: center;
-        gap: 20px;
-        input{
-            color: var(--white);
-            width: 150px;
-            cursor: pointer;
+        flex-direction: column;
+        text-align: center;
+        h1{
+          height: 140px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: -100px;
+          font-family: "Bebas Neue";
+          font-size: 170px;
+          font-weight: 400;
+          line-height: 216px;
+          letter-spacing: 0.3rem;
+          text-align: left;
+          background-image: linear-gradient(356.24deg, #917B00 25.9%, #EACE3F 96.3%);
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-size: auto auto;
+          background-size: 200% auto;
         }
-        button{
-            padding: 18px 40px;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.47);
-            background: rgba(255, 255, 255, 0.16);
-            color: var(--white);
-            cursor: pointer;
+        &-img {
+          float: left;
+          width: 100%;
+          height: 50vh;
+          object-fit: cover;
+          display: flex;
+          justify-content: center;
+          margin-top: 20px;
         }
+      }
     }
-}
-.poligon{
-    width:150px;
-    height:40px;
-    margin: auto;
-    background-color:red;
-    transform: rotate(180deg);
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-    background-color: #080B19;
+  }
 }
 
-@keyframes sdd {
-    0%{
-        transform: scale(0.5);
-    }
-    100%{
-        transform: scale(1);
-    }
+@keyframes textClip {
+  to{
+    background-position: 200% center;
+  }
 }
+
+
+
+
+// (356.24deg, #917B00 25.9%, #EACE3F 96.3%)
+// (356.24deg, #3C6397 25.9%, #85A5DB 96.3%)
+// (180deg, #E2E2E2 -19.44%, #2C2C2C 100%)
