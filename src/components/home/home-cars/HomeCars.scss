@@ -1,4 +1,6 @@
 .home-cars{
+    position: relative;
+
     margin-top: 80px;
     &-top{
         h4{
@@ -23,6 +25,94 @@
                 cursor: pointer;
                 &:hover{
                     background-color: black;
+                }
+            }
+        }
+    }
+    &-bottom{
+        margin-top: 80px;
+        &-title{
+            display: flex;
+            gap: 50px;
+            h2{
+                font-size: 42px;
+                letter-spacing: 0.1rem;         
+            }
+            button{
+                padding: 12px 20px;
+                background: transparent;
+                border: 2px solid;
+                border-radius: 8px;
+                font-size: 14px;
+                font-weight: 700;
+            }
+        }
+        &-items{
+            margin-top: 80px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            &-item{
+                text-align: center;
+                width: 420px;
+                border: 1px solid #B9B9B9;
+                border-radius: 8px;
+                >img{
+                    margin-top: 80px;
+                }
+                h4{
+                    font-size: 20px;
+                    font-weight: 700;
+                    margin-top: 20px;
+                }
+                &-options{
+                    width: 90%;
+                    margin: auto;
+                    display: flex;
+                    gap: 10px;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 8px 16px;
+                    background: #F6F6F6;
+                    border-radius: 16px;
+                    margin-top: 20px;
+                    li{
+                        list-style: none;
+                        p{
+                            font-size: 14px;
+                            font-style: italic;
+                        }
+                    }
+                }
+                &-book{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 90%;
+                    margin: auto;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    border-top: 2px solid #707070;
+                    padding-top: 20px;
+                    button{
+                        padding: 12px 20px;
+                        background: var(--layout);
+                        color: var(--white);
+                        border-radius: 6px;
+                        font-size: 12px;
+                        font-weight: 700;
+                        border: none;
+                        outline: none;
+                        cursor: pointer;
+                        
+                    }
+                    p{
+                        font-size: 14px;
+                        color: #1F1F1F;
+                        font-weight: 700;
+                        letter-spacing: 0.5px;
+                    }
                 }
             }
         }
