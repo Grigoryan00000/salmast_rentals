@@ -15,18 +15,6 @@ export const HomeCars = () => {
     const homeCars = useSelector((state) => state.homeCars.homeCars);
     const homeCarsOptions = useSelector((state) => state.homeCars.homeCarsOptions);
 
-    // const ref = useRef();
-
-    // useEffect(() => {
-    //     function handler(e) {
-    //         if (show && ref.current && !ref.current.contains(e.target)) {
-    //             setShow(false);
-    //         }
-    //     }
-    //     document.addEventListener('click', handler)
-    //     return () => document.removeEventListener('click', handler)
-    // }, [show]);
-
 useEffect(() =>{
     document.body.style.overflowY = show ? 'hidden' : 'auto'
 },[show])
@@ -37,7 +25,7 @@ useEffect(() =>{
             <div className="home-cars-top">
                 <h4>Ընտրեք մեքենայի Դասը</h4>
                 <ul className="home-cars-top-list">
-                    {CONFIG.homeCars.map(({id,text,img}) => {
+                    {CONFIG.homeCars.map(({id,text,img1,img2}) => {
                         return(
                             <li 
                             key={id}
@@ -46,8 +34,9 @@ useEffect(() =>{
                             }}
                             style={{background: active === id ? "var(--blue)" : "#0F0F0F0D"}}
                             >
-                                <img src={img}/>
-                                <p>{text}</p>
+                                <img src={img1} style={{display: active === id?"none":"flex"}}/>
+                                <img src={img2} style={{display: active === id? "flex" : "none"}}/>
+                                <p style={{color: active === id ? "white" : "black"}}>{text}</p>
                             </li>
                         )
                     })}

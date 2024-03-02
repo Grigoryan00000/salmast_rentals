@@ -61,6 +61,7 @@ export const HomeCarsPopup = ({show, setShow}) => {
                             )
                         })} 
                     </div>
+                    <button className='home-cars-popup-right-options-rent'>Ամրագրել</button>
                 </div>
             </div>
                 <p className='close-popup' onClick={() => {

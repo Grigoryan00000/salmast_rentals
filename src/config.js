@@ -1,18 +1,24 @@
-import sedan from "./assets/home/home-cars/home-cars-list/sedan-red 1.svg"
-import wagon from "./assets/home/home-cars/home-cars-list/wagon-red 1.png"
-import coup from "./assets/home/home-cars/home-cars-list/coup-red 1.png"
-import convertible from "./assets/home/home-cars/home-cars-list/convertible-red 1.png"
-import mpv from "./assets/home/home-cars/home-cars-list/mpv-red 1.png"
-import bus from "./assets/home/home-cars/home-cars-list/bus.png"
+import blackSedan from "./assets/home/home-cars/home-cars-list/sedan-black.png"
+import whiteSedan from "./assets/home/home-cars/home-cars-list/sedan-white.png"
+import blackWagon from "./assets/home/home-cars/home-cars-list/wagon-black.png"
+import whiteWagon from "./assets/home/home-cars/home-cars-list/wagon-white.png"
+import blackCoup from "./assets/home/home-cars/home-cars-list/coup-black.png"
+import whiteCoup from "./assets/home/home-cars/home-cars-list/coup-white.png"
+import blackConvertible from "./assets/home/home-cars/home-cars-list/convertible-black.png"
+import whiteConvertible from "./assets/home/home-cars/home-cars-list/convertible-white.png"
+import blackWpv from "./assets/home/home-cars/home-cars-list/mpv-black.png"
+import whiteWpv from "./assets/home/home-cars/home-cars-list/mpv-white.png"
+
+
 import kia from "./assets/home/home-banner/kia.png"
 import nissan from "./assets/home/home-banner/nissan.png"
 import toyota from "./assets/home/home-banner/toyota.png"
 
 export const CONFIG = {
-    
+
     // Header
 
-    headerConfig:[
+    headerConfig: [
         {
             id: 1,
             title: "Մեր մասին",
@@ -33,36 +39,36 @@ export const CONFIG = {
 
     // home-cars
 
-    homeCars:[
+    homeCars: [
         {
             id: 1,
-            img: sedan,
+            img1: blackSedan,
+            img2: whiteSedan,
             text: "Սեդան",
         },
         {
             id: 2,
-            img: wagon,
+            img1: blackWagon,
+            img2: whiteWagon,
             text: "Ամենագնաց",
         },
         {
             id: 3,
-            img: coup,
+            img1: blackCoup,
+            img2: whiteCoup,
             text: "Կուպե",
         },
         {
             id: 4,
-            img: convertible,
+            img1: blackConvertible,
+            img2: whiteConvertible,
             text: "Կաբրիոլետ",
         },
         {
             id: 5,
-            img: mpv,
+            img1: blackWpv,
+            img2: whiteWpv,
             text: "Մինիվեն",
-        },
-        {
-            id: 6,
-            img: bus,
-            text: "Ավտոբուս",
         },
     ],
 
@@ -116,15 +122,15 @@ export const CONFIG = {
             desc: "No",
         },
     ],
-    
-    homecarsPopupRent:[
+
+    homecarsPopupRent: [
         {
             text: "Rent for 14 days",
             desc: "250$"
         }
     ],
 
-    homecarsPopupDelivery:[
+    homecarsPopupDelivery: [
         {
             id: 1,
             text: "Delivery",
@@ -142,7 +148,7 @@ export const CONFIG = {
         },
     ],
 
-    homecarsPopupOther:[
+    homecarsPopupOther: [
         {
             id: 1,
             text: "Delivery",
@@ -159,16 +165,16 @@ export const CONFIG = {
 
 
 
-    homeSlider:[
+    homeSlider: [
         {
-            id:1,
+            id: 1,
             title: "SALMAST RENTALS",
             titleColor: "-webkit-linear-gradient(180deg, #E2E2E2 -19.44%, #2C2C2C 100%)",
             img: kia,
             bgColor: "linear-gradient(180deg, #C8CCCE 0%, #929395 100%)",
         },
         {
-            id:2,
+            id: 2,
             title: "SALMAST RENTALS",
             titleColor: "linear-gradient(356.24deg, #3C6397 25.9%, #85A5DB 96.3%)",
 
@@ -176,14 +182,14 @@ export const CONFIG = {
             bgColor: "linear-gradient(180deg, #B3C2DC 0%, #7596D2 100%)"
         },
         {
-            id:3,
+            id: 3,
             title: "SALMAST RENTALS",
             titleColor: "linear-gradient(356.24deg, #917B00 25.9%, #EACE3F 96.3%)",
             img: toyota,
             bgColor: "linear-gradient(180deg, #FFF6D3 0%, #D8CA7D 100%)",
         }
     ],
-        
+
 }
 
 

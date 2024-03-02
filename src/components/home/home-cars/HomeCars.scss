@@ -1,7 +1,7 @@
 .home-cars{
     position: relative;
 
-    margin-top: 80px;
+    margin: 80px 100px;
     &-top{
         h4{
             font-size: 24px;
@@ -9,8 +9,8 @@
         }
         ul{
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
             gap: 15px;
             margin-top: 25px;
             li{
@@ -33,6 +33,7 @@
         margin-top: 80px;
         &-title{
             display: flex;
+            align-items: center;
             gap: 50px;
             h2{
                 font-size: 42px;
@@ -118,3 +119,143 @@
         }
     }
 }
+
+
+@media screen and (max-width: 1260px) {
+    .home-cars{
+        &-top{
+            ul{
+            justify-content: center;
+                li{
+                    width: 250px;
+                    height: 140px;
+                }
+            }
+        }
+        &-bottom{
+            &-title{
+                h2{
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1260px) {
+    .home-cars{
+        &-bottom{
+            &-title{
+                h2{
+                    font-size: 30px;
+                }
+            }
+            &-items{
+                justify-content: center;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1515px) {
+    .home-cars{
+        &-bottom{
+            &-items{
+                justify-content: center;
+                &-item{
+                    width: 500px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 975px) {
+    .home-cars{
+        &-bottom{
+            &-title{
+                h2{
+                    font-size: 25px;
+                }
+                button{
+                    padding: 10px 18px;
+                }
+            }
+            &-items{
+                justify-content: center;
+            }
+        }
+    }
+}
+@media screen and (max-width: 750px){
+    .home-cars{
+        &-bottom{
+            &-title{
+                h2{
+                    font-size: 25px;
+                }
+                button{
+                    padding: 10px 18px;
+                }
+            }
+            &-items{
+                &-item{
+                    width: 100%;
+                }                
+            }
+        }
+    }
+}
+@media screen and (max-width: 600px){
+    .home-cars{
+        margin: 80px 30px;
+        &-top{
+            h4{
+                font-size: 20px;
+            }
+        }
+        &-bottom{
+            &-title{
+                h2{
+                    font-size: 20px;
+                    letter-spacing: 0;
+                }
+                button{
+                    width: 200px;
+                    height: 50px;
+                    font-size: 13px;
+                    padding: 0;
+                }
+            }
+            &-items{
+                &-item{
+                    >img{
+                        margin-top: 80px;
+                        width: 240px;
+                    }
+                    h4{
+                        font-size: 15px;
+                    }
+                    &-options{
+                        padding: 4px 12px;
+                        li{
+                            p{
+                                font-size: 10px;
+                            }
+                        }
+                    }
+                    &-book{
+                        button{
+                            padding: 8px 16px;
+                            font-size: 8px;
+                            
+                        }
+                        p{
+                            font-size: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
