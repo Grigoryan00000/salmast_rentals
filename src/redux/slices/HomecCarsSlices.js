@@ -17,25 +17,14 @@ const initialState = {
             id:1,
             img: car1,
             title: "BMW X2, 2021",
-            
         },
         {
             id:2,
-            img: car1,
-            title: "Ծրագրավորման",
-        },
-        {
-            id:3,
-            img: car1,
-            title: "Մուլտիմեդիայի",
-        },
-        {
-            id:4,
             img: car2,
             title: "Kia Optima, 2020",
         },
         {
-            id: 5,
+            id:3,
             img: car3,
             title: "Nissan Rogue, 2018",
         },
