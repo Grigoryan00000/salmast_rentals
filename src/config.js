@@ -13,64 +13,12 @@ import whiteWpv from "./assets/home/home-cars/home-cars-list/mpv-white.png"
 import kia from "./assets/home/home-banner/kia.png"
 import nissan from "./assets/home/home-banner/nissan.png"
 import toyota from "./assets/home/home-banner/toyota.png"
+import kiaWhite from "./assets/home/home-banner/kia-white.png"
+
 
 export const CONFIG = {
 
-    // Header
-
-    headerConfig: [
-        {
-            id: 1,
-            title: "Մեր մասին",
-        },
-        {
-            id: 2,
-            title: "Մեքենաներ",
-        },
-        {
-            id: 3,
-            title: "Գործընկերներ",
-        },
-        {
-            id: 4,
-            title: "Կապ",
-        },
-    ],
-
     // home-cars
-
-    homeCars: [
-        {
-            id: 1,
-            img1: blackSedan,
-            img2: whiteSedan,
-            text: "Սեդան",
-        },
-        {
-            id: 2,
-            img1: blackWagon,
-            img2: whiteWagon,
-            text: "Ամենագնաց",
-        },
-        {
-            id: 3,
-            img1: blackCoup,
-            img2: whiteCoup,
-            text: "Կուպե",
-        },
-        {
-            id: 4,
-            img1: blackConvertible,
-            img2: whiteConvertible,
-            text: "Կաբրիոլետ",
-        },
-        {
-            id: 5,
-            img1: blackWpv,
-            img2: whiteWpv,
-            text: "Մինիվեն",
-        },
-    ],
 
     homeCarsPopupSpecification: [
         {
@@ -168,25 +116,27 @@ export const CONFIG = {
     homeSlider: [
         {
             id: 1,
-            title: "SALMAST RENTALS",
-            titleColor: "-webkit-linear-gradient(180deg, #E2E2E2 -19.44%, #2C2C2C 100%)",
+            title: "RENTALS",
+            name: "Kia optima 2018",
             img: kia,
-            bgColor: "linear-gradient(180deg, #C8CCCE 0%, #929395 100%)",
         },
         {
             id: 2,
-            title: "SALMAST RENTALS",
-            titleColor: "linear-gradient(356.24deg, #3C6397 25.9%, #85A5DB 96.3%)",
-
+            title: "RENTALS",
+            name: "Nissan Rogue 2018",
             img: nissan,
-            bgColor: "linear-gradient(180deg, #B3C2DC 0%, #7596D2 100%)"
         },
         {
             id: 3,
-            title: "SALMAST RENTALS",
-            titleColor: "linear-gradient(356.24deg, #917B00 25.9%, #EACE3F 96.3%)",
+            title: "RENTALS",
+            name: "Toyota Camry 2021",
             img: toyota,
-            bgColor: "linear-gradient(180deg, #FFF6D3 0%, #D8CA7D 100%)",
+        },
+        {
+            id: 4,
+            title: "RENTALS",
+            name: "Kia Optima 2020",
+            img: kiaWhite,
         }
     ],
 

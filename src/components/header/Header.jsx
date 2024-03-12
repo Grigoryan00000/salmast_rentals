@@ -13,12 +13,11 @@ import env from "react-dotenv";
 export const Header = () => {
   const [change, setChange] = useState(false)
   const [data, setData] = useState([])
-
   useEffect(() => {
     async function getData() {
       try {
         const {data} = await axios.get(
-          "http://13.60.41.118:8000/header_list/"
+          "http://13.53.71.29:8000/header_list/"
         );
         setData(data);
       } catch (error) {
@@ -28,6 +27,16 @@ export const Header = () => {
     getData();
     console.log(data);
   }, []);
+  
+  // useEffect(() => {
+  //   axios("http://13.53.62.53:8000/header_list/")
+  //     .then((response) => {
+  //       setData(response.data);
+  //       setError(null);
+  //     })
+  //     .catch(setError);
+  //  console.log(data);
+  // }, []);
   
   
 
