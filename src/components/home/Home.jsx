@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { HomeBanner } from './home-banner/HomeBanner'
 import { HomeCars } from './home-cars/HomeCars'
 import { HomeServices } from './home-services/HomeServices'
 
 export const Home = () => {
+  const myRef = useRef(null)
+  const executeScroll = () => myRef.current.scrollIntoView()
   return (
     <div className='home'>
-        <HomeBanner />
-        <HomeCars />
+      
+        <HomeBanner myRef={myRef}/>
+        <HomeCars myRef={myRef}/>
         <HomeServices />
     </div>
   )
