@@ -16,19 +16,17 @@ export const HomeCars = ({ myRef }) => {
     const [dataList, setDataList] = useState([])
     const [dataCar, setDataCar] = useState([])
 
-    const homeCars = useSelector((state) => state.homeCars.homeCars);
-    const homeCarsOptions = useSelector((state) => state.homeCars.homeCarsOptions);
-
-
+    
+    
     useEffect(() => {
         document.body.style.overflowY = show ? 'hidden' : 'auto'
     }, [show])
-
+    
     useEffect(() => {
         async function getData() {
             try {
                 const { data } = await axios.get(
-                    "http://13.53.71.29:8000/choise_list/"
+                    "http://16.171.5.85:8000/choise_list/"
                 );
                 setDataList(data);
             } catch (error) {
@@ -37,21 +35,29 @@ export const HomeCars = ({ myRef }) => {
         }
         getData();
     }, []);
-
+    
     useEffect(() => {
         async function getData() {
             try {
                 const { data } = await axios.get(
-                    "http://13.53.71.29:8000/product_list/"
-                );
-                setDataCar(data);
-            } catch (error) {
-                console.log(error.message)
+                    "http://16.171.5.85:8000/product_list/"
+                    );
+                    setDataCar(data);
+                } catch (error) {
+                    console.log(error.message)
             }
         }
         getData();
     }, []);
+    
+    const [tag, setTag] = useState(1);
+    const [filteredImges, setFilteredImages] = useState([])
 
+
+    // useEffect(() => {
+    //     tag === setFilteredImages(dataCar.filter(imges => imges.choice == tag))
+    // },[tag])
+    // console.log(filteredImges);
 
     return (
 
