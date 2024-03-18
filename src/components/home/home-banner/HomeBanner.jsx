@@ -24,7 +24,7 @@ export const HomeBanner = ({myRef}) => {
         loop={true}
         grabCursor
         autoplay={{
-          delay: 300000,
+          delay: 500000,
         }}
         onSwiper={(swiper) => console.log(swiper)}
       >

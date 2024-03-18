@@ -17,7 +17,7 @@ export const Header = () => {
     async function getData() {
       try {
         const {data} = await axios.get(
-          "http://13.53.71.29:8000/header_list/"
+          "http://16.171.5.85:8000/header_list/"
         );
         setData(data);
       } catch (error) {
@@ -27,6 +27,27 @@ export const Header = () => {
     getData();
     console.log(data);
   }, []);
+
+  
+    const [data1, setData1] = useState(null);
+    const [data2, setData2] = useState(null);
+  
+    // useEffect(() => {
+    //   // Fetch data1
+    //   axios.get('https://api.coindesk.com/v1/bpi/currentprice.json')
+    //     .then(response => {
+    //       setData1(response.data);
+    //     })
+    //     .catch(error => {
+    //       console.error('Error fetching data from API 1:', error);
+    //     });
+  
+    //     console.log(setData1);
+    //   }, []);
+
+  
+
+
   
   // useEffect(() => {
   //   axios("http://13.53.62.53:8000/header_list/")

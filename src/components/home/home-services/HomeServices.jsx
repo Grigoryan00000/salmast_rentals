@@ -11,7 +11,7 @@ export const HomeServices = () => {
     async function getData() {
         try {
             const { data } = await axios.get(
-                "http://13.53.71.29:8000/advantages_list/"
+                "http://16.171.5.85:8000/advantages_list/"
             );
             setDataService(data);
         } catch (error) {
@@ -31,7 +31,7 @@ export const HomeServices = () => {
         <div className="home-services-items" >
           {dataService.map(({id, img, ad_name_hy, ad_about_hy}) => {
             return(
-              <div className="home-services-items-item">
+              <div className="home-services-items-item" key={id}>
                 <img src={img} alt="" key={id}/>
                 <h3>{ad_name_hy}</h3>
                 <p>{ad_about_hy}</p>

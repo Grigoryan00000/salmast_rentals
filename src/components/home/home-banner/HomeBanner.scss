@@ -1,5 +1,5 @@
 .home-banner {
-  background: linear-gradient(107.56deg, rgba(0, 0, 0, 0.822) 0%, rgba(23, 201, 255, 0.4) 30.19%, rgba(255, 50, 139, 0.4) 78.05%, rgba(0, 0, 0, 0.822) 97.75%);
+  background: linear-gradient(107.56deg, rgba(0, 0, 0, 0.822) 0%, rgba(3, 0, 190, 0.822) 30.19%, rgba(255, 50, 139, 0.4) 78.05%, rgba(0, 0, 0, 0.822) 97.75%);
   width: 100%;
   display: flex;
   align-items: center;
@@ -79,13 +79,13 @@
   .home-banner {
     height: 70vh;
     &-item{
-      height: 540px;
+      height: 510px;
       img{
-        width: 750px;
-        height: 300px;
+        width: 720px;
+        height: 270px;
       }
       h1{
-        font-size: 250px;
+        font-size: 230px;
       }
     }
   }
@@ -95,10 +95,10 @@
   .home-banner {
     height: 60vh;
     &-item{
-      height: 500px;
+      height: 450px;
       img{
-        width: 640px;
-        height: 255px;
+        width: 570px;
+        height: 210px
       }
       h1{
         font-size: 210px;
@@ -111,13 +111,16 @@
   .home-banner {
     height:55vh;
     &-item{
-      height: 445px;
+      h1{
+      }
+      height: 400px;
       img{
-        width: 550px;
-        height: 200px;
+        width: 500px;
+        height: 182px;
       }
       h1{
-        font-size: 165px;
+        line-height: 185px;
+        font-size: 150px;
       }
     }
   }
@@ -127,15 +130,19 @@
   .home-banner {
     height:40vh;
     &-item{
-      height: 445px;
+      height: 340px;
       img{
-        width: 500px;
-        height: 185px;
+        width: 410px;
+        height: 150px;
       }
       h1{
-        font-size: 135px;
+        font-size: 115px;
+        line-height: 150px;
       }
     }
+  }
+  .swiper-pagination-bullet{
+    width: 20px;
   }
 }
 
