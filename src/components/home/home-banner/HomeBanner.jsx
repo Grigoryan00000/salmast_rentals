@@ -9,9 +9,15 @@ import { CONFIG } from '../../../config';
 
 
 import { useRef, useState } from "react";
+import { useSelector } from "react-redux";
+
 
 
 export const HomeBanner = ({myRef}) => {
+  
+  const langState = useSelector((state) => state.lang.lang)
+
+
   return (
     <div className='home-banner' >
       <div className="home-banner-overlay"></div>
@@ -38,7 +44,7 @@ export const HomeBanner = ({myRef}) => {
                   myRef.current.scrollIntoView({
                     behavior: "smooth"
                   })
-                }}>ԸՆտրել մեքենա</button>
+                }}>{langState==="hy"?"ԸՆտրել մեքենա":langState==="ru"?"Выбрать автомобиль":"Choose a car"}</button>
               </div>
             </SwiperSlide>
           )

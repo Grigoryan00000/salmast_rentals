@@ -9,15 +9,23 @@ import { FaChevronDown } from "react-icons/fa";
 import { CONFIG } from '../../config'
 import axios from 'axios'
 import env from "react-dotenv";
+import { useDispatch, useSelector } from 'react-redux';
+import { selectEn, selectHy, selectRu } from '../../redux/slices/LangSlice';
 
 export const Header = () => {
   const [change, setChange] = useState(false)
   const [data, setData] = useState([])
+
+
+  const langState = useSelector((state) => state.lang.lang)
+  const dispatch = useDispatch()
+
+
   useEffect(() => {
     async function getData() {
       try {
         const {data} = await axios.get(
-          "http://13.53.71.29:8000/header_list/"
+          "http://16.171.5.85:8000/header_list/"
         );
         setData(data);
       } catch (error) {
@@ -43,7 +51,24 @@ export const Header = () => {
   return (
     <header className='header'>
       <Container>
-        {data.map(({id, logo, name, page1_hy, page2_hy, page3_hy, page4_hy, language_logo, currency_logo, search_logo ,search_hy}) => {
+        <div className='lang-buttons'>
+          <button onClick={() => {
+            dispatch(selectHy())
+          }}>hy</button>
+          <button onClick={() => {
+            dispatch(selectEn())
+          }}>en</button>
+          <button onClick={() => {
+            dispatch(selectRu())
+          }}>ru</button>
+
+        </div>
+        {data.map(({id, logo, name,
+        page1_hy,page1_ru, page1_en, 
+        page2_hy,page2_en,page2_ru, 
+        page3_hy, page3_en, page3_ru,  
+        page4_hy, page4_en, page4_ru,
+        language_logo, currency_logo, search_logo ,search_hy}) => {
           return(
             <div className="row" key={id}>
               <div className="logo">
@@ -51,10 +76,11 @@ export const Header = () => {
                 <p>{name}</p>
               </div>
               <ul className='nav'>
-                <li>{page1_hy}</li>
-                <li>{page2_hy}</li>
-                <li>{page3_hy}</li>
-                <li>{page4_hy}</li>
+                <li>{langState==="hy"?page1_hy:langState==="en"?page1_en:page1_ru}</li>
+                <li>{langState==="hy"?page2_hy:langState==="en"?page2_en:page2_ru}</li>
+                <li>{langState==="hy"?page3_hy:langState==="en"?page3_en:page3_ru}</li>
+                <li>{langState==="hy"?page4_hy:langState==="en"?page4_en:page4_ru}</li>
+
               </ul>
               <div className="options">
                 <div className="options-search">
