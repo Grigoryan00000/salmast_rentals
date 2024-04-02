@@ -392,15 +392,18 @@
           margin-top: 30px;
           padding-top: 10px;
           &-item {
-            display: flex;
-            justify-content: space-between;
             font-size: 17px;
+            div{
+                display: flex;
+                justify-content: space-between;
+              }
           }
+          
           h4 {
             letter-spacing: 0;
             color: #333e50;
             &:not(:first-child) {
-              color: darkblue;
+              color: #333e50;
               font-weight: 300;
             }
           }
