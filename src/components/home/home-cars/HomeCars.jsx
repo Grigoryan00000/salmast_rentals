@@ -14,6 +14,7 @@ export const HomeCars = ({ myRef }) => {
     const [dataList, setDataList] = useState([])
     const [dataCar, setDataCar] = useState([])
     const [reservData, setReservData] = useState([])
+    const [costData, setCostData] = useState([])
 
     const homeCars = useSelector((state) => state.homeCars.homeCars);
     const homeCarsOptions = useSelector((state) => state.homeCars.homeCarsOptions);
@@ -26,7 +27,21 @@ export const HomeCars = ({ myRef }) => {
         async function getData() {
             try {
                 const { data } = await axios.get(
-                    "http://13.53.134.185:8000/reservation_list/"
+                    "http://13.60.43.166:8000/cost_list/"
+                );
+                setCostData(data);
+            } catch (error) {
+                console.log(error.message)
+            }
+        }
+        getData();
+    }, []);
+
+    useEffect(() => {
+        async function getData() {
+            try {
+                const { data } = await axios.get(
+                    "http://13.60.43.166:8000/reservation_list/"
                 );
                 setReservData(data);
             } catch (error) {
@@ -40,7 +55,7 @@ export const HomeCars = ({ myRef }) => {
         async function getData() {
             try {
                 const { data } = await axios.get(
-                    "http://13.53.134.185:8000/choise_list/"
+                    "http://13.60.43.166:8000/choise_list/"
                 );
                 setDataList(data);
             } catch (error) {
@@ -54,7 +69,7 @@ export const HomeCars = ({ myRef }) => {
         async function getData() {
             try {
                 const { data } = await axios.get(
-                    "http://13.53.134.185:8000/product_list/"
+                    "http://13.60.43.166:8000/product_list/"
                 );
                 setDataCar(data);
             } catch (error) {
@@ -162,7 +177,7 @@ export const HomeCars = ({ myRef }) => {
                                 }) => {
                                     if (id === product){
                                         return (
-                                            <div  className={`home-cars-popup`} >
+                                            <div  className={`home-cars-popup`} key={id}>
                                                 <div className="home-cars-popup-left">
                                                     <ul className="home-cars-popup-left-list">
                                                         <li>Car /</li>
@@ -207,7 +222,7 @@ export const HomeCars = ({ myRef }) => {
 
                                                         </div>
                                                         <div className="home-cars-popup-left-options-insurance">
-                                                            <h2>{name}</h2>
+                                                            <h2></h2>
                                                             
                                                             
                                                         </div>
@@ -215,17 +230,39 @@ export const HomeCars = ({ myRef }) => {
                                                 </div>
                                                 <div className="home-cars-popup-right">
                                                     <img src={car_img} alt="nkar" className='home-cars-popup-right-img'/>
-                                                    <h3>Cost</h3>
+                                                    <h3>{langState==="en" ? "cost" : langState==="ru" ? "расходы" : "արժեքը"}</h3>
                                                     <div className="home-cars-popup-right-options">
                                                         <div className="home-cars-popup-right-options-delivery">
-                                                            {CONFIG.homecarsPopupDelivery.map(({id, text,desc}) => {
+
+                                                            {costData.map(({del_name_en, del_name_ru, del_name_hy, del_num,
+                                                                            drop_name_en, drop_name_ru, drop_name_hy, drop_num,
+                                                                            pick_name_en, pick_name_ru, pick_name_hy, pick_num, id}) => {
+                                                                return(
+                                                                    <div className="home-cars-popup-right-options-delivery-item" key={id}>
+                                                                        <div>
+                                                                            <h4>{langState==="en"?del_name_en : langState === "ru" ? del_name_ru : del_name_hy}</h4>
+                                                                            <p>{del_num}$</p>
+                                                                        </div>
+                                                                        <div>
+                                                                            <h4>{langState==="en"?pick_name_en : langState === "ru" ? pick_name_ru : pick_name_hy}</h4>
+                                                                            <p>{pick_num}$</p>
+                                                                        </div>
+                                                                        <div>
+                                                                            <h4>{langState==="en"?drop_name_en : langState === "ru" ? drop_name_ru : drop_name_hy}</h4>
+                                                                            <p>{drop_num}$</p>
+                                                                        </div>   
+                                                                    </div>
+                                                                )
+                                                            })}
+
+                                                            {/* {CONFIG.homecarsPopupDelivery.map(({id, text,desc}) => {
                                                                 return(
                                                                     <div className="home-cars-popup-right-options-delivery-item" key={id}>
                                                                         <h4>{text}</h4>
                                                                         <p>{desc}</p>
                                                                     </div>
                                                                 )
-                                                            })} 
+                                                            })}  */}
                                                         </div>
                                                         <button className='home-cars-popup-right-options-rent'>{langState==="en"?"Booking":langState==="ru"?"Бронирование":"Ամրագրել"}</button>
                                                     </div>

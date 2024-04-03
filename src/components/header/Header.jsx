@@ -6,6 +6,11 @@ import Container from "../common/container/Container"
 import { BsCurrencyExchange } from "react-icons/bs";
 import { IoSearchOutline } from "react-icons/io5";
 import { FaChevronDown } from "react-icons/fa";
+
+import flagArm from "../../assets/header/languages/armenia.png"
+import flagUsa from "../../assets/header/languages/united-states.png"
+import flagRu from "../../assets/header/languages/russia.png"
+
 import { CONFIG } from '../../config'
 import axios from 'axios'
 import env from "react-dotenv";
@@ -15,17 +20,27 @@ import { selectEn, selectHy, selectRu } from '../../redux/slices/LangSlice';
 export const Header = () => {
   const [change, setChange] = useState(false)
   const [data, setData] = useState([])
-
-
+  const [lang, setLang] = useState("hy")
+  
+  
   const langState = useSelector((state) => state.lang.lang)
   const dispatch = useDispatch()
-
+  
+  useEffect(() => {
+    if (lang === "en") {
+      dispatch(selectEn())
+    } else if (lang === "ru") {
+      dispatch(selectRu())
+    } else {
+      dispatch(selectHy())
+    }
+  }, [lang]);
 
   useEffect(() => {
     async function getData() {
       try {
         const {data} = await axios.get(
-          "http://16.171.5.85:8000/header_list/"
+          "http://13.60.43.166:8000/header_list/"
         );
         setData(data);
       } catch (error) {
@@ -37,8 +52,6 @@ export const Header = () => {
   }, []);
 
   
-    const [data1, setData1] = useState(null);
-    const [data2, setData2] = useState(null);
   
     // useEffect(() => {
     //   // Fetch data1
@@ -72,7 +85,7 @@ export const Header = () => {
   return (
     <header className='header'>
       <Container>
-        <div className='lang-buttons'>
+        {/* <div className='lang-buttons'>
           <button onClick={() => {
             dispatch(selectHy())
           }}>hy</button>
@@ -83,7 +96,7 @@ export const Header = () => {
             dispatch(selectRu())
           }}>ru</button>
 
-        </div>
+        </div> */}
         {data.map(({id, logo, name,
         page1_hy,page1_ru, page1_en, 
         page2_hy,page2_en,page2_ru, 
@@ -114,6 +127,15 @@ export const Header = () => {
                   <FaChevronDown />
                 </div>
                 <div className="options-language">
+                  <select onChange={(e) => {
+                    const selectedLang = e.target.value
+                    setLang(selectedLang)
+                  }}>
+                    <option value="hy"><img src={flagArm} alt="hy" /></option>
+                    <option value="en"><img src={flagUsa} alt="en" /></option>
+                    <option value="ru"><img src={flagRu} alt="ru" /></option>
+                  </select>
+                  
                   <img src={language_logo} alt="" />
                   {/* <FaChevronDown /> */}
                 </div>
