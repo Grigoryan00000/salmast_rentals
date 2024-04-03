@@ -49,12 +49,16 @@
             }
         }
         &-items{
+            transition: 300ms ease;
             margin-top: 80px;
             display: flex;
             justify-content: space-between;
             gap: 20px;
             flex-wrap: wrap;
             &-item{
+            animation: appearItem 0.9s ease;
+
+                transition: 300ms ease;
                 text-align: center;
                 width: 420px;
                 border: 1px solid #B9B9B9;
@@ -119,6 +123,15 @@
         }
     }
 }
+
+@keyframes appearItem {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 
 
 @media screen and (max-width: 1260px) {

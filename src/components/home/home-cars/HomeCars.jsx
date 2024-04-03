@@ -13,6 +13,9 @@ export const HomeCars = ({ myRef }) => {
     const [show, setShow] = useState(false)
     const [dataList, setDataList] = useState([])
     const [dataCar, setDataCar] = useState([])
+    const [filter, setFilter] = useState(1);
+
+  const langState = useSelector((state) => state.lang.lang)
     const [reservData, setReservData] = useState([])
     const [costData, setCostData] = useState([])
 
@@ -55,6 +58,7 @@ export const HomeCars = ({ myRef }) => {
         async function getData() {
             try {
                 const { data } = await axios.get(
+                    "http://16.171.198.168:8000/choise_list/"
                     "http://13.60.43.166:8000/choise_list/"
                 );
                 setDataList(data);
@@ -69,6 +73,7 @@ export const HomeCars = ({ myRef }) => {
         async function getData() {
             try {
                 const { data } = await axios.get(
+                    "http://16.171.198.168:8000/product_list/"
                     "http://13.60.43.166:8000/product_list/"
                 );
                 setDataCar(data);
@@ -79,14 +84,14 @@ export const HomeCars = ({ myRef }) => {
         getData();
     }, []);
 
-    const [tag, setTag] = useState(1);
-    const [filteredImges, setFilteredImages] = useState([])
+    const handleFilterChange = (category) => {
+        setFilter(category);
+      };
 
-
-    // useEffect(() => {
-    //     tag === setFilteredImages(dataCar.filter(imges => imges.choice == tag))
-    // },[tag])
-    // console.log(filteredImges);
+      const filteredData = filter
+      ? dataCar.filter((item) => item.choice === filter)
+      : dataCar;
+      console.log(filteredData);
 
     return (
         <div ref={myRef} className='home-cars' >
@@ -94,12 +99,13 @@ export const HomeCars = ({ myRef }) => {
                 <div className="home-cars-top">
                     <h4>{langState==="en"?"Select the Class of the vehicle":langState==="ru"?"Выберите Класс автомобиля":"Ընտրեք մեքենայի Դասը"}</h4>
                     <ul className="home-cars-top-list">
-                        {dataList.map(({ id, name_hy, car_logo, act_car_logo, car_about_hy, car_about_en, car_about_ru }) => {
+                        {dataList.map(({ id, name_hy, car_logo, act_car_logo, car_about_hy, car_about_en, car_about_ru, }) => {
                             return (
                                 <li
                                     key={id}
                                     onClick={() => {
                                         setActive(id)
+                                        handleFilterChange(id)
                                     }}
                                     style={{ background: active === id ? "var(--blue)" : "#0F0F0F0D" }}
                                 >
@@ -114,10 +120,12 @@ export const HomeCars = ({ myRef }) => {
                 <div className="home-cars-bottom" >
                     <div className="home-cars-bottom-title">
                         <h2>{langState==="ru"?"Рекомендуемый выбор":langState==="en"?"Recommended choice":"Առաջարկվող ընտրանին"}</h2>
-                        <button>{langState==="ru"?"Увидеть все":langState==="en"?"See all":"Տեսնել բոլորը"}</button>
+                        <button onClick={() =>{
+                            // handleFilterChange(id)
+                        }}>{langState==="ru"?"Увидеть все":langState==="en"?"See all":"Տեսնել բոլորը"}</button>
                     </div>
                     <div className="home-cars-bottom-items">
-                        {dataCar.map(({ id, car_name_hy, car_name_ru, car_name_en,
+                        {filteredData.map(({ id, choice, car_name_hy, car_name_ru, car_name_en,
                         car_logo, 
                         speed_name_hy, speed_name_ru, speed_name_en,
                         speed_logo, 
@@ -155,8 +163,10 @@ export const HomeCars = ({ myRef }) => {
                                         <button onClick={() => dispatch(activate(id))}>{langState==="en"?car_button_en:langState==="ru"?car_button_ru:car_button_hy}</button>
                                         <p>{langState==="en"?price_text_en:langState==="ru"?price_text_ru:price_text_hy}</p>
                                     </div>
+                                    {/* - {choice} */}
                                 </div>
                             )
+                            // -{choice}
                         })}
                     </div>
                 </div>
