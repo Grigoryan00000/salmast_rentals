@@ -3,10 +3,12 @@
   width: 100%;
   display: flex;
   align-items: center;
-  height: 90vh;
+  // height: 100vh;
   position: relative;
   text-align: center;
   scroll-behavior: smooth;
+  padding-top: 7rem;
+  padding-bottom: 1.5rem;
   &-overlay{
     position: absolute;
     top: 0;
@@ -18,43 +20,58 @@
   }
   &-item{
     height: 600px;
-    h1 {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: -120px;
-      font-family: "Bebas Neue";
-      font-size: 300px;
-      font-weight: 400;
-      line-height: 216px;
-      letter-spacing: 20px;
-      transform: translateY(50px);
-      color: transparent;
-      -webkit-text-stroke: 4px #FFFFFF99;
-    }
-    img{
-      width: 848px;
-      height: 350px;
+    &-middle{
+      width: 925px;
       margin: auto;
-      object-fit: cover;
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-      transform: translateY(50px);
-
-    }
-    button{
-      padding: 5px 12px;
-      border: 3px solid white;
-      background: transparent;
-      color: white;
-      border-radius: 3px;
-      margin-top: 50px;
+      h1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: -120px;
+        font-family: "Bebas Neue";
+        font-size: 300px;
+        font-weight: 400;
+        line-height: 216px;
+        letter-spacing: 20px;
+        transform: translateY(50px);
+        color: transparent;
+        -webkit-text-stroke: 4px #FFFFFF99;
+      }
+      img{
+        width: 848px;
+        height: 350px;
+        margin: auto;
+        object-fit: cover;
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        transform: translateY(20px);
+  
+      }
+      p{
+        font-size: 30px;
+        text-align: left;
+        color: var(--white);
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+      button{
+        padding: 5px 12px;
+        border: 3px solid white;
+        background: transparent;
+        color: white;
+        border-radius: 3px;
+        margin-top: 30px;
+      }
     }
   }
+
+
   &-item:nth-of-type(3){
     margin-top: 50px;
   }
+
+
   .swiper{
   }
   .swiper-button-prev{
@@ -73,15 +90,34 @@
   }
 }
 
-
+@media screen and (max-width: 1200px) {
+  .home-banner {
+    // height: 85vh;
+    &-item{
+      height: 510px;
+      &-middle{
+        width: 736px;
+      }
+      img{
+        width: 650px;
+        height: 270px;
+      }
+      h1{
+        font-size: 230px;
+      }
+    }
+  }
+}
 
 @media screen and (max-width: 1100px) {
   .home-banner {
-    height: 70vh;
     &-item{
       height: 510px;
+      &-middle{
+        width: 736px;
+      }
       img{
-        width: 720px;
+        width: 650px;
         height: 270px;
       }
       h1{
@@ -93,9 +129,10 @@
 
 @media screen and (max-width: 860px) {
   .home-banner {
-    height: 60vh;
     &-item{
-      height: 450px;
+    &-middle{
+      padding-top: 30px;
+      width: 685px;
       img{
         width: 570px;
         height: 210px
@@ -103,24 +140,34 @@
       h1{
         font-size: 210px;
       }
+      p{
+        padding-top: 25px;
+        font-size: 23px;
+      }
+    }
     }
   }
 }
 
 @media screen and (max-width: 720px) {
   .home-banner {
-    height:55vh;
+    // height:55vh;
     &-item{
-      h1{
-      }
-      height: 400px;
-      img{
-        width: 500px;
-        height: 182px;
-      }
-      h1{
-        line-height: 185px;
-        font-size: 150px;
+    height: 500px;
+    &-middle{
+    width: 525px;
+    padding-top: 70px;
+        
+        height: 450px;
+        img{
+          width: 500px;
+          height: 182px;
+        }
+        h1{
+          line-height: 150px;
+          font-size: 170px;
+          margin-bottom: -90px
+        }
       }
     }
   }
@@ -128,16 +175,27 @@
 
 @media screen and (max-width: 600px) {
   .home-banner {
-    height:40vh;
+    // height:40vh;
     &-item{
-      height: 340px;
-      img{
-        width: 410px;
-        height: 150px;
-      }
-      h1{
-        font-size: 115px;
-        line-height: 150px;
+    height: 500px;
+      &-middle{
+        width: 491px;
+        img{
+          width: 410px;
+          height: 165px;
+
+        }
+        h1{
+          font-size: 135px;
+          line-height: 150px;
+        }
+        button{
+          font-size: 10px;
+        }
+        p{
+          font-size: 18px;
+          
+        }
       }
     }
   }

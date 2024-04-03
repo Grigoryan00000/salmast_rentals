@@ -8,14 +8,31 @@ import "swiper/css/scrollbar";
 import { CONFIG } from '../../../config';
 
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
+import axios from "axios";
 
 
 
 export const HomeBanner = ({myRef}) => {
   
-  const langState = useSelector((state) => state.lang.lang)
+  const langState = useSelector((state) => state.lang.lang);
+  const [data, setData] = useState([])
+  
+  useEffect(() => {
+    async function getData() {
+      try {
+        const {data} = await axios.get(
+          "http://16.171.198.168:8000/slayder_list/"
+        );
+        setData(data);
+      } catch (error) {
+        console.log(error.message)
+      }
+    }
+    getData();
+    console.log(data);
+  }, []);
 
 
   return (
@@ -34,17 +51,20 @@ export const HomeBanner = ({myRef}) => {
         }}
         onSwiper={(swiper) => console.log(swiper)}
       >
-        {CONFIG.homeSlider.map(({id, img, title}) => {
+        {data.map(({id, name, img, car_name, button_name_hy, button_name_ru, button_name_en}) => {
           return(
             <SwiperSlide key={id}>
               <div className="home-banner-item">
-                <h1>{title}</h1>
-                <img src={img} alt="" />
-                <button onClick={() => {
-                  myRef.current.scrollIntoView({
-                    behavior: "smooth"
-                  })
-                }}>{langState==="hy"?"ԸՆտրել մեքենա":langState==="ru"?"Выбрать автомобиль":"Choose a car"}</button>
+                <div className="home-banner-item-middle">
+                  <h1>{name}</h1>
+                  <img src={img} alt="" />
+                  <p>{car_name}</p>
+                  <button onClick={() => {
+                    myRef.current.scrollIntoView({
+                      behavior: "smooth"
+                    })
+                  }}>{langState==="hy"? button_name_hy : langState==="ru"? button_name_ru : button_name_en}</button>
+                  </div>
               </div>
             </SwiperSlide>
           )

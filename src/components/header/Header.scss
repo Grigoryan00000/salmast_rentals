@@ -1,21 +1,24 @@
 .header{
     background: var(--layout);  
-    // position: fixed;
-    // width: 100%;
-    // z-index: 20;  
+    position: fixed;
+    width: 100%;
+    z-index: 20;  
     align-items: center;
     border-bottom: 2px solid var(--blue);
-  padding: 0 100px;
-
+    padding: 0 100px;
 }
 .row{
     height: 100px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    
 }
 .logo{
     display: flex;
     align-items: center;
+    z-index: 100;
+    width: 200px;
     p{
         font-size: 23px;
         font-family: "Michroma";
@@ -27,20 +30,25 @@
 }
 .nav{
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 30px;
     list-style: none;
     color: var(--white);
+    width: 1100px;
     li{
         cursor: pointer;
     }
 }
 .options{
+    width: 200px;
     display: flex;
     align-items: center;
     gap: 40px;
     color: var(--white);
     transition: all 300ms ease;
+    z-index: 100;
+    justify-content: end;
 
     &-search{
         display: flex;
@@ -68,8 +76,62 @@
         }
     }
 }
+.burger{
+    font-size: 40px;
+    color: var(--white);
+    display: none;
+}
 
 
 
-
-
+@media screen and (max-width: 1050px) {
+    .nav{
+        position: fixed;
+        top: 0;
+        left: 0%;
+        text-align: center;
+        width: 100%;
+        padding-top: 80px;
+        height: 800px;
+        justify-content: center;
+        background-color: black;
+        z-index: 2;
+        padding-left: 20px;
+        display: none;
+        overflow: auto;
+        font-size: 40px;
+        overflow: hidden;
+        -webkit-scrollbar: none;
+        li{
+            margin-top: 50px;
+        }
+    }
+    .options{
+        display: none;
+    }
+    .burger{
+        display: block;
+        z-index: 100;
+    }
+    .header{
+        padding: 0 50px;
+    }
+}
+@media screen and (max-width: 700px){
+    .header{
+        padding: 0 20px;
+    }
+    svg{
+        font-size: 30px;
+    }
+    
+    .logo{
+        p{
+            font-size: 20px;
+            line-height: 1.5;
+        }
+        img{
+            width: 40px;
+        }
+    }
+}

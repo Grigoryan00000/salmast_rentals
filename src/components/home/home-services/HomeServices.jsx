@@ -11,7 +11,7 @@ export const HomeServices = () => {
     async function getData() {
         try {
             const { data } = await axios.get(
-                "http://16.171.5.85:8000/advantages_list/"
+                "http://16.171.255.93:8000/advantages_list/"
             );
             setDataService(data);
         } catch (error) {
