@@ -23,7 +23,7 @@ export const HomeBanner = ({myRef}) => {
     async function getData() {
       try {
         const {data} = await axios.get(
-          "http://16.171.198.168:8000/slayder_list/"
+          "http://16.171.141.213:8000/slayder_list/"
         );
         setData(data);
       } catch (error) {

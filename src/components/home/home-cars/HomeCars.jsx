@@ -15,7 +15,7 @@ export const HomeCars = ({ myRef }) => {
     const [dataCar, setDataCar] = useState([])
     const [filter, setFilter] = useState(1);
 
-  const langState = useSelector((state) => state.lang.lang)
+//   const langState = useSelector((state) => state.lang.lang)
     const [reservData, setReservData] = useState([])
     const [costData, setCostData] = useState([])
 
@@ -30,7 +30,7 @@ export const HomeCars = ({ myRef }) => {
         async function getData() {
             try {
                 const { data } = await axios.get(
-                    "http://13.60.43.166:8000/cost_list/"
+                    "http://16.171.171.13:8000/cost_list/"
                 );
                 setCostData(data);
             } catch (error) {
@@ -44,7 +44,7 @@ export const HomeCars = ({ myRef }) => {
         async function getData() {
             try {
                 const { data } = await axios.get(
-                    "http://13.60.43.166:8000/reservation_list/"
+                    "http://16.171.171.13:8000/reservation_list/"
                 );
                 setReservData(data);
             } catch (error) {
@@ -58,8 +58,7 @@ export const HomeCars = ({ myRef }) => {
         async function getData() {
             try {
                 const { data } = await axios.get(
-                    "http://16.171.198.168:8000/choise_list/"
-                    "http://13.60.43.166:8000/choise_list/"
+                    "http://16.171.171.13:8000/choise_list/"
                 );
                 setDataList(data);
             } catch (error) {
@@ -73,8 +72,7 @@ export const HomeCars = ({ myRef }) => {
         async function getData() {
             try {
                 const { data } = await axios.get(
-                    "http://16.171.198.168:8000/product_list/"
-                    "http://13.60.43.166:8000/product_list/"
+                    "http://16.171.171.13:8000/product_list/"
                 );
                 setDataCar(data);
             } catch (error) {

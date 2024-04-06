@@ -14,7 +14,7 @@ export const HomeServices = () => {
     async function getData() {
         try {
             const { data } = await axios.get(
-                "http://16.171.255.93:8000/advantages_list/"
+                "http://16.171.171.13:8000/advantages_list/"
             );
             setDataService(data);
         } catch (error) {
@@ -23,6 +23,8 @@ export const HomeServices = () => {
     }
     getData();
   }, []);
+  console.log(dataService[0]);
+
 
   return (
     <div className='home-services'>
