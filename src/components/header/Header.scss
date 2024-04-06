@@ -22,10 +22,10 @@
     p{
         font-size: 23px;
         font-family: "Michroma";
-        padding-left: 20px;
+        padding-left: 7px;
         color: var(--white);
         text-transform: uppercase;
-        width: 145px;
+        width: 131px;
     }
 }
 .nav{
@@ -35,51 +35,27 @@
     gap: 30px;
     list-style: none;
     color: var(--white);
-    width: 1100px;
+    width: 950px;
     li{
         cursor: pointer;
     }
 }
-.options{
-    width: 200px;
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    color: var(--white);
-    transition: all 300ms ease;
-    z-index: 100;
-    justify-content: end;
 
-    &-search{
-        display: flex;
-        align-items: center;
-        span{
-            margin-left: 7px;
-        }
-    }
-    &-currency{
-        display: flex;
-        align-items: center;
-        p{
-            margin: 0 7px;
-            font-size: 12px;
-        }
-        svg:first-child{
-            font-size: 22px;
-        }
-    }
-    &-language{
-        display: flex;
-        align-items: center;
-        svg{
-            margin-left: 7px;
-        }
+.language{
+    display: flex;
+    width: 200px;
+    justify-content: space-between;
+    gap: 10px;
+    img{
+        width: 40px;
     }
 }
 .burger{
     font-size: 40px;
     color: var(--white);
     display: none;
+    // width: 200px;
+    
 }
 
 
@@ -91,7 +67,7 @@
         left: 0%;
         text-align: center;
         width: 100%;
-        padding-top: 80px;
+        // padding-top: 80px;
         height: 800px;
         justify-content: center;
         background-color: black;
@@ -100,18 +76,25 @@
         display: none;
         overflow: auto;
         font-size: 40px;
-        overflow: hidden;
         -webkit-scrollbar: none;
+        padding: 80px 50px;
         li{
             margin-top: 50px;
+            // margin-left: 100px;
         }
     }
-    .options{
+    .language{
         display: none;
+        z-index: 10;
+        position: absolute;
+        top: 520%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
     .burger{
-        display: block;
         z-index: 100;
+        display: flex;
+        justify-content: flex-end;
     }
     .header{
         padding: 0 50px;
@@ -133,5 +116,15 @@
         img{
             width: 40px;
         }
+    }
+}
+
+
+@media screen and (max-width: 560px){
+    .nav{
+        font-size: 30px;
+    }
+    .language{
+        top: 500%
     }
 }
