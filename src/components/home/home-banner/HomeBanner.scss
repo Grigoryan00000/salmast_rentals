@@ -21,6 +21,7 @@
   &-item{
     height: 600px;
     &-middle{
+
       width: 925px;
       margin: auto;
       h1 {
@@ -85,6 +86,13 @@
     width: 90px;
     border-radius: 10px;
     background: white;
+  }
+}
+@media screen and (max-width: 420px) {
+  .home-banner-item-middle{
+    p{
+      margin-left: 20px;
+    }
   }
 }
 
@@ -177,7 +185,7 @@
     &-item{
     height: 500px;
       &-middle{
-        width: 491px;
+        width: 491px
         img{
           width: 410px;
           height: 165px;
@@ -208,7 +216,7 @@
       height: 470px;
       // padding-top: 20px;
       &-middle{
-        width: 412px;
+        width: 395px;
         img{
           width: 371px;
           height: 147px;
