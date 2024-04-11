@@ -14,7 +14,7 @@ export const HomeServices = () => {
     async function getData() {
         try {
             const { data } = await axios.get(
-                "http://16.171.171.13:8000/advantages_list/"
+                "http://13.53.174.178:8000/advantages_list/"
             );
             setDataService(data);
         } catch (error) {
@@ -34,12 +34,13 @@ export const HomeServices = () => {
           <p>{langState==="hy"?"Վարձակալությունը հեշտ և առանց դժվարության դարձնելու համար մենք տրամադրում ենք մի շարք ծառայություններ և առավելություններ: Մենք ձեզ ապահովագրում ենք տարբեր տրանսպորտային միջոցներով և վարձակալության ճկուն պայմաններով:":langState==="ru"?"Мы предоставляем различные услуги и преимущества, чтобы сделать аренду легкой и беспроблемной. Мы предоставим вам различные транспортные средства и гибкие условия аренды.":'We provide a variety of services and benefits to make renting easy and hassle-free. We cover you with a variety of vehicles and flexible rental terms.'}</p>
         </div>
         <div className="home-services-items" >
-          {dataService.map(({id, img, ad_name_hy, ad_about_hy}) => {
+          {dataService.map(({id, img, ad_name_hy, ad_name_en,ad_name_ru, 
+          ad_about_hy,ad_about_en,ad_about_ru}) => {
             return(
               <div className="home-services-items-item" key={id}>
                 <img src={img} alt="" key={id}/>
-                <h3>{ad_name_hy}</h3>
-                <p>{ad_about_hy}</p>
+                <h3>{langState==="hy"?ad_name_hy:langState==="ru"?ad_name_ru:ad_name_en}</h3>
+                <p>{langState==="hy"?ad_about_hy:langState==="ru"?ad_about_ru:ad_about_en}</p>
               </div>
                 )
               })}

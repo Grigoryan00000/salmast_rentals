@@ -7,6 +7,7 @@ import { current } from '@reduxjs/toolkit'
 import axios from 'axios'
 import Popup from 'reactjs-popup'
 import { activate, closePopup } from '../../../redux/slices/PopupSlice'
+import { IoClose } from 'react-icons/io5'
 
 export const HomeCars = ({ myRef }) => {
     const [active, setActive] = useState(1);
@@ -14,6 +15,7 @@ export const HomeCars = ({ myRef }) => {
     const [dataList, setDataList] = useState([])
     const [dataCar, setDataCar] = useState([])
     const [filter, setFilter] = useState(1);
+    const [popupOpen, setPopupOpen] = useState(false)
 
 //   const langState = useSelector((state) => state.lang.lang)
     const [reservData, setReservData] = useState([])
@@ -27,10 +29,23 @@ export const HomeCars = ({ myRef }) => {
     const dispatch = useDispatch()
 
     useEffect(() => {
+        // Update body overflow when popup state changes
+        document.body.style.overflow = popupOpen ? 'hidden' : 'auto';
+        // document.body.style.filter = popupOpen ? 'blur(0.7rem)' : 'blur(0)';
+        let popup = document.querySelector(".popup")
+
+        // Cleanup function to reset body overflow when component unmounts
+        return () => {
+            document.body.style.overflow = 'auto';
+        };
+    }, [popupOpen]);
+
+    useEffect(() => {
         async function getData() {
             try {
                 const { data } = await axios.get(
-                    "http://16.171.171.13:8000/cost_list/"
+                    "http://13.53.174.178:8000/cost_list/"
+                    
                 );
                 setCostData(data);
             } catch (error) {
@@ -44,7 +59,7 @@ export const HomeCars = ({ myRef }) => {
         async function getData() {
             try {
                 const { data } = await axios.get(
-                    "http://16.171.171.13:8000/reservation_list/"
+                    "http://13.53.174.178:8000/reservation_list/"
                 );
                 setReservData(data);
             } catch (error) {
@@ -58,7 +73,7 @@ export const HomeCars = ({ myRef }) => {
         async function getData() {
             try {
                 const { data } = await axios.get(
-                    "http://16.171.171.13:8000/choise_list/"
+                    "http://13.53.174.178:8000/choise_list/"
                 );
                 setDataList(data);
             } catch (error) {
@@ -72,7 +87,7 @@ export const HomeCars = ({ myRef }) => {
         async function getData() {
             try {
                 const { data } = await axios.get(
-                    "http://16.171.171.13:8000/product_list/"
+                    "http://13.53.174.178:8000/product_list/"
                 );
                 setDataCar(data);
             } catch (error) {
@@ -91,7 +106,7 @@ export const HomeCars = ({ myRef }) => {
       : dataCar;
       console.log(filteredData);
 
-    return (
+      return (
         <div ref={myRef} className='home-cars' >
             <Conatiner>
                 <div className="home-cars-top">
@@ -119,7 +134,6 @@ export const HomeCars = ({ myRef }) => {
                     <div className="home-cars-bottom-title">
                         <h2>{langState==="ru"?"Рекомендуемый выбор":langState==="en"?"Recommended choice":"Առաջարկվող ընտրանին"}</h2>
                         <button onClick={() =>{
-                            // handleFilterChange(id)
                         }}>{langState==="ru"?"Увидеть все":langState==="en"?"See all":"Տեսնել բոլորը"}</button>
                     </div>
                     <div className="home-cars-bottom-items">
@@ -158,20 +172,21 @@ export const HomeCars = ({ myRef }) => {
                                         </li>
                                     </ul>
                                     <div className="home-cars-bottom-items-item-book">
-                                        <button onClick={() => dispatch(activate(id))}>{langState==="en"?car_button_en:langState==="ru"?car_button_ru:car_button_hy}</button>
+                                        <button onClick={() => {
+                                            dispatch(activate(id)) 
+                                            setPopupOpen(true)
+                                        }}>{langState==="en"?car_button_en:langState==="ru"?car_button_ru:car_button_hy}</button>
                                         <p>{langState==="en"?price_text_en:langState==="ru"?price_text_ru:price_text_hy}</p>
                                     </div>
-                                    {/* - {choice} */}
                                 </div>
                             )
-                            // -{choice}
                         })}
                     </div>
                 </div>
                 <div className="popup" style={{display: "flex", gap: "20px"}}>
                     {popupWin.map(({id, active}) => {
                         if(active){
-
+                            
                             console.log(reservData[id-1]);
                             return(
                                 reservData.map(({product, name_en, name_hy, name_ru,
@@ -186,12 +201,18 @@ export const HomeCars = ({ myRef }) => {
                                     if (id === product){
                                         return (
                                             <div  className={`home-cars-popup`} key={id}>
+                                                <div className="home-cars-popup-upper">
+                                                    <div className='close-popup'>
+                                                        <span onClick={() => {
+                                                            dispatch(closePopup())
+                                                            setPopupOpen(false)
+                                                        }}>
+                                                            <IoClose style={{fontSize: "30px"}}/>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div className="home-cars-popup-lower">
                                                 <div className="home-cars-popup-left">
-                                                    <ul className="home-cars-popup-left-list">
-                                                        <li>Car /</li>
-                                                        <li>Booking /</li>
-                                                        <li>Payment /</li>
-                                                    </ul>
                                                     <div className="home-cars-popup-left-title">
                                                         <span>
                                                             Free cancellation
@@ -257,29 +278,16 @@ export const HomeCars = ({ myRef }) => {
                                                                         </div>
                                                                         <div>
                                                                             <h4>{langState==="en"?drop_name_en : langState === "ru" ? drop_name_ru : drop_name_hy}</h4>
-                                                                            <p>{drop_num}$</p>
+                                                                            <p>{drop_num }$</p>
                                                                         </div>   
                                                                     </div>
                                                                 )
                                                             })}
-
-                                                            {/* {CONFIG.homecarsPopupDelivery.map(({id, text,desc}) => {
-                                                                return(
-                                                                    <div className="home-cars-popup-right-options-delivery-item" key={id}>
-                                                                        <h4>{text}</h4>
-                                                                        <p>{desc}</p>
-                                                                    </div>
-                                                                )
-                                                            })}  */}
                                                         </div>
                                                         <button className='home-cars-popup-right-options-rent'>{langState==="en"?"Booking":langState==="ru"?"Бронирование":"Ամրագրել"}</button>
                                                     </div>
                                                 </div>
-                                                    <p className='close-popup' onClick={() => {
-                                                        dispatch(closePopup())
-                                                    }}>
-                                                        x
-                                                    </p>
+                                                </div>
                                             </div>
                                         )
                                     }else{
@@ -294,7 +302,6 @@ export const HomeCars = ({ myRef }) => {
                     
                 </div>
             </Conatiner>
-            
         </div>
 
     )
